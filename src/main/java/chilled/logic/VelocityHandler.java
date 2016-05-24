@@ -28,9 +28,9 @@ public final class VelocityHandler {
 
 
     /**
-     * template
+     * template body
      */
-    private final transient String templateValue;
+    private final transient String templateBody;
 
 
 
@@ -50,9 +50,9 @@ public final class VelocityHandler {
      * @param templateName
      * @param templateValue
      */
-    public VelocityHandler(String templateName, String templateValue) {
+    public VelocityHandler(String templateName, String templateBody) {
         this.templateName = templateName;
-        this.templateValue = templateValue;
+        this.templateBody = templateBody;
 
         //execute
         loadEngine();
@@ -77,7 +77,7 @@ public final class VelocityHandler {
      */
     private void loadRepository(){
         repo = (StringResourceRepository) engine.getApplicationAttribute(StringResourceLoader.REPOSITORY_NAME_DEFAULT);
-        repo.putStringResource(templateName, Query.INSERT);
+        repo.putStringResource(templateName, templateBody);
     }
 
     /**
